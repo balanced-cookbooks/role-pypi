@@ -8,6 +8,11 @@
       "git": "git://github.com/dave-shawley/devpi-cookbook.git",
       "ref": "c61eda69484c82f218c11ee887b9f07f5c0f42a1"
     },
+    "supervisor": {
+      "locked_version": "0.4.11",
+      "git": "git://github.com/poise/supervisor.git",
+      "ref": "5958564978ac1f542f01a501a001dd73c2455d18"
+    },
     "role-base": {
       "locked_version": "0.3.7"
     },
@@ -97,9 +102,6 @@
     },
     "python": {
       "locked_version": "1.4.4"
-    },
-    "supervisor": {
-      "locked_version": "0.4.11"
     }
   }
 }
