@@ -17,8 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe 'role-base'
+# include_recipe 'role-base'
 
+include_recipe 'balanced-apt'
 include_recipe 'devpi::server'
 include_recipe 'devpi::supervisor'
 include_recipe 'devpi::nginx'
