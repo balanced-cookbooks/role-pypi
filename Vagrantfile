@@ -24,9 +24,6 @@ default = {
   :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
   :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
   :keypair => ENV["AWS_USER_KEYPAIR"],
-  :ami => "ami-734c6936",
-  :region => "us-west-1",
-  :instance_type => "m1.medium"
 }
 
 VM_NODENAME = "vagrant-#{default[:user]}-#{default[:project]}"
@@ -35,8 +32,8 @@ Vagrant.configure("2") do |config|
 
   config.berkshelf.enable = true
 
-  config.vm.box = "opscode-ubuntu-12.04"
-  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box"
+  config.vm.box = 'opscode-ubuntu-12.04'
+  config.vm.box_url = 'https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box'
 
   config.vm.hostname = 'localhost'
   config.omnibus.chef_version = :latest
@@ -47,9 +44,9 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb, override|
     # Give enough horsepower to build without taking all day.
     vb.customize [
-                  "modifyvm", :id,
-                  "--memory", "2048",
-                  "--cpus", "2",
+                  'modifyvm', :id,
+                  '--memory', '2048',
+                  '--cpus', '2',
                  ]
 
     config.vm.synced_folder host_cache_path, guest_cache_path
@@ -64,34 +61,9 @@ Vagrant.configure("2") do |config|
 
     _s3_keys = JSON.load(File.new("#{chef.data_bags_path}/aws/s3.json"))
 
-    chef.json = {
-        :postgresql => {
-            :password => {
-                :postgres => 'iloverandompasswordsbutthiswilldo'
-            }
-        },
-        :apt_transport_s3 => {
-            :s3 => {
-                 :access_key => _s3_keys['aws_access_key_id'],
-                 :secret_key => _s3_keys['aws_secret_access_key']
-             },
-            :deb => {:make => {:enabled => false}},
-            :binary => {:copy => true}
-        },
-        :elasticsearch => {:cluster => {:name => 'elasticsearch_vagrant'}}
-    }
+    chef.json = {}
     chef.run_list = [
-      'recipe[apt]',
-      'recipe[java]',
-      'recipe[balanced-rabbitmq]',
-      'recipe[balanced-elasticsearch]',
-      'recipe[balanced-postgres]',
-      'recipe[balanced-mongodb]',
-      'recipe[balanced-user]',
-      'recipe[python-balanced]',
-      'recipe[fpm]',
-      'recipe[apt_transport_s3]',
-      "recipe[#{default[:project]}::dev]"
+      "recipe[#{default[:project]}]"
     ]
   end
 
