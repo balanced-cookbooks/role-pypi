@@ -41,6 +41,9 @@ Vagrant.configure("2") do |config|
   # ssh
   config.ssh.forward_agent = true
 
+  # setting this up to be: 50.18.171.182
+  config.vm.network 'private_network', ip: '10.1.3.10'
+
   config.vm.provider :virtualbox do |vb, override|
     # Give enough horsepower to build without taking all day.
     vb.customize [
@@ -61,7 +64,13 @@ Vagrant.configure("2") do |config|
 
     _s3_keys = JSON.load(File.new("#{chef.data_bags_path}/aws/s3.json"))
 
-    chef.json = {}
+    chef.json = {
+        :citadel => {
+            'newrelic/license_key' => nil,
+            :access_key_id => _s3_keys['aws_access_key_id'],
+            :secret_access_key => _s3_keys['aws_secret_access_key']
+        }
+    }
     chef.run_list = [
       "recipe[#{default[:project]}]"
     ]
