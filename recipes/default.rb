@@ -18,14 +18,7 @@
 #
 
 include_recipe 'role-base'
-
 include_recipe 'balanced-apt'
-include_recipe 'devpi::server'
-include_recipe 'devpi::supervisor'
 
-directory '/var/log/devpi-server' do
-  action :create
-  recursive true
-end
-
-include_recipe 'devpi::nginx'
+include_recipe 'balanced-devpi'
+include_recipe 'balanced-devpi::service'
