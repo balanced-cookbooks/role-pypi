@@ -63,12 +63,16 @@ Vagrant.configure("2") do |config|
     chef.data_bags_path = "#{confucius_root}/data_bags"
 
     _s3_keys = JSON.load(File.new("#{chef.data_bags_path}/aws/s3.json"))
+    _vandelay_io_key = File.read("#{confucius_root}/.chef/vandelay.io.key")
+    _vandelay_io_crt = File.read("#{confucius_root}/.chef/vandelay.io.crt")
 
     chef.json = {
         :citadel => {
             'newrelic/license_key' => nil,
             :access_key_id => _s3_keys['aws_access_key_id'],
-            :secret_access_key => _s3_keys['aws_secret_access_key']
+            :secret_access_key => _s3_keys['aws_secret_access_key'],
+            'vandelay.io_certificate/vandelay.io.crt' => _vandelay_io_crt,
+            'vandelay.io_certificate/vandelay.io.key' => _vandelay_io_key
         }
     }
     chef.run_list = [

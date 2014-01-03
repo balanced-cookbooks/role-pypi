@@ -4,3 +4,4 @@ site :opscode
 
 metadata
 
+cookbook 'supervisor', github: 'poise/supervisor'

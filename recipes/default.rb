@@ -21,4 +21,4 @@ include_recipe 'role-base'
 include_recipe 'balanced-apt'
 
 include_recipe 'balanced-devpi'
-include_recipe 'balanced-devpi::service'
+include_recipe 'balanced-devpi::nginx'
