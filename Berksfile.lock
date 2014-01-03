@@ -3,18 +3,8 @@
     "role-pypi": {
       "path": "."
     },
-    "devpi": {
-      "locked_version": "1.0.1",
-      "git": "git://github.com/dave-shawley/devpi-cookbook.git",
-      "ref": "c61eda69484c82f218c11ee887b9f07f5c0f42a1"
-    },
-    "supervisor": {
-      "locked_version": "0.4.11",
-      "git": "git://github.com/poise/supervisor.git",
-      "ref": "5958564978ac1f542f01a501a001dd73c2455d18"
-    },
     "role-base": {
-      "locked_version": "0.3.7"
+      "locked_version": "0.3.9"
     },
     "apt": {
       "locked_version": "2.3.0"
@@ -53,16 +43,10 @@
       "locked_version": "1.4.2"
     },
     "balanced-citadel": {
-      "locked_version": "0.1.0"
+      "locked_version": "1.0.0"
     },
     "citadel": {
-      "locked_version": "0.0.1"
-    },
-    "balanced-monit": {
-      "locked_version": "0.1.1"
-    },
-    "monit": {
-      "locked_version": "1.3.3"
+      "locked_version": "1.0.0"
     },
     "balanced-user": {
       "locked_version": "0.1.2"
@@ -71,7 +55,7 @@
       "locked_version": "0.3.0"
     },
     "balanced-dns": {
-      "locked_version": "0.1.2"
+      "locked_version": "0.1.4"
     },
     "route53": {
       "locked_version": "0.4.0"
@@ -83,10 +67,16 @@
       "locked_version": "1.9.0"
     },
     "balanced-apt": {
+      "locked_version": "0.1.1"
+    },
+    "balanced-devpi": {
       "locked_version": "0.1.0"
     },
-    "apt-s3": {
-      "locked_version": "0.1.0"
+    "balanced-python": {
+      "locked_version": "0.1.1"
+    },
+    "python": {
+      "locked_version": "1.4.4"
     },
     "nginx": {
       "locked_version": "2.0.4"
@@ -100,8 +90,11 @@
     "runit": {
       "locked_version": "1.4.0"
     },
-    "python": {
-      "locked_version": "1.4.4"
+    "supervisor": {
+      "locked_version": "0.4.11"
+    },
+    "devpi": {
+      "locked_version": "1.1.0"
     }
   }
 }

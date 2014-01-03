@@ -1,70 +1,13 @@
 role-pypi Cookbook
 ===================
 
-This role cookbook installs and configures a devpi server.  [Devpi][1] is a
-PyPI-compatible Python Index server that acts as both a freestanding
-Python Index as well as a pull-through cache of the official Python
-Package Index.
-
-[1]: http://doc.devpi.net/latest/
+This role cookbook installs and configures a devpi server using
+[balanced-devpi](https://github.com/balanced-cookbooks/balanced-devpi)
 
 Requirements
 ------------
 * **Python Versions**: Python 2.6 amd 2.7
 * **Operating Systems**: Debian/Ubuntu
-
-Attributes
-----------
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <th><tt>[:devpiserver][:admin_group]</tt></th>
-    <td>String</td>
-    <td>This group can administer the devpi server.  This group
-        will be created if it does not exist.</td>
-    <td>devpi</td>
-  </tr>
-  <tr>
-    <th><tt>[:devpiserver][:server_root]</tt></th>
-    <td>String</td>
-    <td>Store server data in this directory.  This directory will be
-        created if it does not exist.</td>
-    <td>/opt/devpi-server/data</td>
-  </tr>
-  <tr>
-    <th><tt>[:devpiserver][:server_port]</tt></th>
-    <td>Integer</td>
-    <td>Port number that the server will listen on.</td>
-    <td>3141</td>
-  </tr>
-  <tr>
-    <th><tt>[:devpiserver][:daemon_user]</tt></th>
-    <td>String</td>
-    <td>Run the daemon as this user.  This user will be created if
-        it does not exist.</td>
-    <td>devpi</td>
-  </tr>
-  <tr>
-    <th><tt>[:devpiserver][:version]</tt></th>
-    <td>String or <tt>nil</tt></td>
-    <td>Install this version of the devpi-server package.
-        Set this attribute to <tt>nil</tt> to install the latest
-        version.</td>
-    <td><tt>nil</tt></td>
-  </tr>
-  <tr>
-    <th><tt>[:devpiserver][:virtualenv]</tt></th>
-    <td>Path</td>
-    <td>Install Python virtual environment here</td>
-    <td>/opt/devpi-server</td>
-  </tr>
-</table>
 
 Setup
 =====
