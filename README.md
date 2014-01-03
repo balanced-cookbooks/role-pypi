@@ -66,6 +66,7 @@ knife ec2 server create \
   --identity-file ~/.ssh/id_rsa \
   --associate-eip ${SOME_EIP}
   --groups balanced-pypi \
+  --iam-profile pypi \
   --environment dev
 
 Instance ID: i-800c6cdd
